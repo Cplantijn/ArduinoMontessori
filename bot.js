@@ -3,7 +3,7 @@ var board = new five.Board();
 
 var express = require('express');
 var app = express();
-var server = require('http').Server(express);
+var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var path = require("path");
 
@@ -36,6 +36,8 @@ function stopAll() {
   board.digitalWrite(forwardsPin, OFF);
   board.digitalWrite(backwardsPin, OFF);
 }
+
+// Moving In directions
 
 
 // Stuff to start the server!
