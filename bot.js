@@ -14,8 +14,8 @@ var path = require("path");
 - Blue - Right - 9
 */
 
-var ON = 0;
-var OFF = 1;
+var ON = parseInt(0);
+var OFF = parseInt(1);
 
 var leftPin = 6,
     rightPin = 9,
@@ -38,7 +38,10 @@ function stopAll() {
 }
 
 // Moving In directions
-
+function goForwards() {
+  board.digitalWrite(backwardsPin, OFF);
+  board.digitalWrite(forwardsPin, ON);
+}
 
 // Stuff to start the server!
 app.use('/client', express.static('client'));
@@ -50,3 +53,7 @@ app.get('/', function (req, res) {
 server.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
+
+io.on('connection', function (socket) {
+  console.log('A user has connected. Welcome!')
+})
