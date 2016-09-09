@@ -4,10 +4,16 @@
   </head>
   <body>
     <h1> Let's Hack a Robot!</h1>
+    <button id="goForwads">Forwards</button>
+
     <script src="./client/io.js"></script>
     <script src="./client/jquery.js"></script>
     <script>
     var socket = io();
+
+    jQuery('#goForwads').click(function() {
+      socket.emit('go forwards');
+    });
     </script>
   </body>
 </html>

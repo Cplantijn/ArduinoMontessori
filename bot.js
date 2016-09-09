@@ -55,5 +55,8 @@ server.listen(3000, function () {
 });
 
 io.on('connection', function (socket) {
-  console.log('A user has connected. Welcome!')
+  console.log('A user has connected. Welcome!');
+  socket.on('go forwards', function() {
+    goForwards();
+  })
 })
