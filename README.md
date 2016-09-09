@@ -1,5 +1,3 @@
-# ArduinoCarApp
-Arduino App for Controlling RC Car
+# Arduino Car App for Montessori Schools
 
-### Step 4
-* Set up Socket IO
+This is a sample app for how to control an RC car using an Arduino and Johnny Five.
