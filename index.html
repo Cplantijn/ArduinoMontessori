@@ -5,6 +5,10 @@
   <body>
     <h1> Let's Hack a Robot!</h1>
     <button id="goForwads">Forwards</button>
+    <button id="goBackwards">Backwards</button>
+    <button id="goLeft">left</button>
+    <button id="goRight">Right</button>
+    <button id="stop">Stop</button>
 
     <script src="./client/io.js"></script>
     <script src="./client/jquery.js"></script>
@@ -13,6 +17,22 @@
 
     jQuery('#goForwads').click(function() {
       socket.emit('go forwards');
+    });
+
+    jQuery('#goBackwards').click(function() {
+      socket.emit('go backwards');
+    });
+
+    jQuery('#goLeft').click(function() {
+      socket.emit('go left');
+    });
+
+    jQuery('#goRight').click(function() {
+      socket.emit('go right');
+    });
+
+    jQuery('#stop').click(function() {
+      socket.emit('stop');
     });
     </script>
   </body>

@@ -43,6 +43,21 @@ function goForwards() {
   board.digitalWrite(forwardsPin, ON);
 }
 
+function goBackwards() {
+  board.digitalWrite(forwardsPin, OFF);
+  board.digitalWrite(backwardsPin, ON);
+}
+
+function goLeft() {
+  board.digitalWrite(rightPin, OFF);
+  board.digitalWrite(leftPin, ON);
+}
+
+function goRight() {
+  board.digitalWrite(leftPin, OFF);
+  board.digitalWrite(rightPin, ON);
+}
+
 // Stuff to start the server!
 app.use('/client', express.static('client'));
 
@@ -56,7 +71,24 @@ server.listen(3000, function () {
 
 io.on('connection', function (socket) {
   console.log('A user has connected. Welcome!');
+
   socket.on('go forwards', function() {
     goForwards();
-  })
+  });
+
+  socket.on('go backwards', function() {
+    goBackwards();
+  });
+
+  socket.on('go left', function() {
+    goLeft();
+  });
+
+  socket.on('go right', function() {
+    goRight();
+  });
+
+  socket.on('stop', function() {
+    stopAll();
+  });
 })
